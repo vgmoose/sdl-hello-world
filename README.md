@@ -1,5 +1,7 @@
 This program draws "Hello world!" on the Nintendo Switch using a bitmap font.
 
+The main code is in [hello.c](https://github.com/vgmoose/sdl-hello-world/blob/master/hello.c)
+
 ### Compiling
 #### For Switch
 Clone and setup libtransistor, for more detail [see this post](https://reswitchedweekly.github.io/Development-Setup/).
@@ -16,7 +18,7 @@ export LIBTRANSISTOR_HOME=./libtransistor
 make
 ```
 #### For PC
-This program can also be compiled for the computer. There's no Makefile target, but with SD2L installed:
+This program can also be compiled for the computer. There's no Makefile target, but with SDL2 installed:
 ```
 gcc -lSDL2 *.c -o hello
 ```
