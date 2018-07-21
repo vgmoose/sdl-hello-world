@@ -1,7 +1,7 @@
 #include "draw.h"
 
 Graphics* init()
-{	
+{
 	if(SDL_Init(SDL_INIT_VIDEO) < 0) {
 		printf("SDL init failed: %s\n", SDL_GetError());
 		return 0;
@@ -9,7 +9,7 @@ Graphics* init()
 
 	printf("initialized SDL\n");
 	Graphics* g = malloc(sizeof (Graphics));
-	
+
 	g->window = SDL_CreateWindow("n/a", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_SHOWN);
 	if(g->window == NULL) {
 		printf("window could not be created: %s\n", SDL_GetError());
@@ -17,23 +17,22 @@ Graphics* init()
 	}
 
 	printf("created window\n");
-	
+
 	g->window_surface = SDL_GetWindowSurface(g->window);
 
 	printf("got window surface\n");
-	
+
 	// make background black
 	background(g, 0x00, 0x00, 0x00);
-	
+
 	return g;
 }
 
 void deinit(struct Graphics* g)
 {
-	SDL_Delay(1);
-	SDL_DestroyWindow(g->window);
+	SDL_VideoQuit();
 	SDL_Quit();
-	
+
 	free(g);
 }
 
@@ -88,16 +87,16 @@ void drawColorString(struct Graphics* gr, int xi, int yi, char* string, int r, i
 {
 	// for every character in the string, if it's within range, render it at the current position
 	// and move over 8 characters
-	
+
 	xi *= 8;
 	yi *= 8;
-	
+
 	char next = -1;
 	int i = 0;
 	while (next != '\0')
 	{
 		next = string[i++];
-		
+
 		// actually draw this char pixel by pixel, if it's within range
 		if (next >= 0)
 		{
@@ -111,17 +110,17 @@ void drawColorString(struct Graphics* gr, int xi, int yi, char* string, int r, i
 			}
 		}
 	}
-	
+
 	update(gr);
 }
 
 
-/** 
+/**
  * 8x8 monochrome bitmap fonts for rendering
  * Author: Daniel Hepper <daniel@hepper.net>
- * 
+ *
  * License: Public Domain
- * 
+ *
  * Based on:
  * // Summary: font8x8.h
  * // 8x8 monochrome bitmap fonts for rendering
@@ -132,7 +131,7 @@ void drawColorString(struct Graphics* gr, int xi, int yi, char* string, int r, i
  * //
  * // License:
  * //     Public Domain
- * 
+ *
  * Fetched from: http://dimensionalrift.homelinux.net/combuster/mos3/?p=viewsource&file=/modules/gfx/font8_8.asm
  **/
 

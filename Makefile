@@ -16,7 +16,7 @@ all: $(PROGRAM).nro
 	$(AS) $(AS_FLAGS) $< -filetype=obj -o $@
 
 $(PROGRAM).nro.so: ${OBJ} $(LIBTRANSITOR_NRO_LIB) $(LIBTRANSISTOR_COMMON_LIBS)
-	$(LD) $(LD_FLAGS) -o $@ ${OBJ} $(LIBTRANSISTOR_NRO_LDFLAGS)
+	$(LD) $(LD_FLAGS) -lSDL2 -o $@ ${OBJ} $(LIBTRANSISTOR_NRO_LDFLAGS)
 
 clean:
 	rm -rf *.o *.nso *.nro *.so
