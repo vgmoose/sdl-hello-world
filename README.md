@@ -6,7 +6,7 @@ To see another simple SDL2 program with graphics and input, see [spacenx](https:
 
 ### Compiling
 #### For Switch (libtransistor)
-0. You will need [llvm](https://llvm.org/) for your computer. You can probably get this through your package manger (eg. `brew install llvm`, see [here](https://reswitchedweekly.github.io/Development-Setup/) for more info)
+0. You will need [llvm](https://llvm.org/) for your computer. You can probably get this through your package manger (eg. `brew install llvm`, see [here](https://reswitchedweekly.github.io/Development-Setup/#dealing-with-the-deps) for more info)
 
 1. Setup and install [libtransistor](https://github.com/reswitched/libtransistor#installation) by downloading it from the [releases page](https://github.com/reswitched/libtransistor/releases). It is recommended to copy it to `/opt/libtransistor`.
 
