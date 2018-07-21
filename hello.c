@@ -10,7 +10,7 @@ int main()
 
 	// wait 10s
 	sleep(10);
-  //
+  
 	// clean up graphics
 	deinit(g);
 
